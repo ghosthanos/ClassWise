@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="website logo.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="portfolio.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100&display=swap" rel="stylesheet"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet"> <title>Your Website</title>
+</head>
+<body>
+  <nav class="navbar">
+    <ul class="nav-links">
+      
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#games">GAMES</a></li>
+      <li><a href="#apps">APPS</a></li>
+      <li><a href="#websites">WEBSITES</a></li>
+      <li><a href="/Users/vigneshkumar/Desktop/portfolio/resume.pdf" target="_blank">RESUME</a></li>
+
+
+    </ul>
+  </nav>
+  <section id="websites">
+    <div class="card1">
+      <h6 class="hello">Hello, I'm</h6>
+      <h1 class="Vignesh">Vignesh Kumar</h1>
+      <h6 class="welcome">WELCOME TO MY WEBSITE</h6>
+    
+      <div class="socials-logo">
+        <li><a href="#" id="linkedin" target="_blank"><img src="icons/linkedin copy.png" alt="LinkedIn"></a></li>
+        <li><a href="#" id="github" target="_blank"><img src="icons/github copy.png" alt="GitHub"></a></li>
+        <li><a href="#" id="youtube" target="_blank"><img src="icons/youtube copy.png" alt="YouTube"></a></li>
+     </div>
+    </div>
+  </section>
+  
+<!-- Sections on your page -->
+<section id="about">
+  <div class="card2">
+    <h1 class="about">ABOUT</h1>
+    <div class="description-and-image">
+      <p>A Final Year CS student.
+        Passionate about UI/UX and Front-end Developement
+      </p>
+      <div class="profile">
+        <img src="IMG_8514.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="games">
+  <div class="card2-5">
+    <div class="games">GAMES</div>
+      <div class="games-logo">
+        <div class="column5">
+            <a href="#" id="linkedin" target="_blank">
+                <img src="icons/pacman.png" alt="LinkedIn">
+               <!---- <span>Pacman</span> -->
+            </a>
+        </div>
+       
+    </div>
+    
+    
+    </div>
+</section>
+
+<section id="apps">
+  <div class="card3">
+    <div class="apps">APPS</div>
+      <div class="apps-logo">
+        <div class="column1">
+          <a href="guideviz.html" target="_blank">
+              <img src="icons/guideviz.png" alt="Guideviz">
+              <span>Guideviz</span>
+          </a>
+      </div>
+        <div class="column2">
+          <a href="livestock.html" target="_blank">
+                <img src="icons/livestock.png" alt="GitHub">
+                <span>Livestock</span>
+            </a>
+        </div>
+        <div class="column3">
+            <a href="#" id="youtube" target="_blank">
+                <img src="icons/ganapathy.png" alt="YouTube">
+                <span>Ganapathy</span>
+            </a>
+        </div>
+        <div class="column4">
+          <a href="#" id="youtube" target="_blank">
+              <img src="icons/baymax.png" alt="YouTube">
+              <span>Baymax</span>
+          </a>
+      </div>
+    </div>
+    
+    
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  // JavaScript
+document.getElementById("linkedin").addEventListener("click", function(event) {
+  event.preventDefault(); // Prevent the default behavior of the anchor tag
+  window.location.href = "https://www.linkedin.com/in/vignesh-k-bb0084248/"; // Redirect to your LinkedIn profile
+});
+
+document.getElementById("github").addEventListener("click", function(event) {
+  event.preventDefault();
+  window.location.href = "https://github.com/ghosthanos"; // Redirect to your GitHub profile or repository
+});
+
+document.getElementById("youtube").addEventListener("click", function(event) {
+  event.preventDefault();
+  window.location.href = "https://www.youtube.com/channel/UCaupsBVnieY_P_T5L73EG4g"; // Redirect to your YouTube channel
+});
+
+
+</script>
+
+</body>
+</html>
