@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Classwise</title>
+        <link rel="icon" type="image/png" href="icons8-c-programming-color/icons8-c-programming-480.png">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    
+    <body>
+        <div class="main">
+            <div class="horizontal-navbar">
+                <img class="menu" src="icons/hamburger_menu.png" style="height: 25px;" alt="">
+                <img class="classwise-logo" src="classwise-logo.png" alt="">
+                <input type="text" placeholder="Search">
+                <div class="right-end-navbar-elements">
+                    <img class="bell" src="icons/bell.png" alt="">
+
+                    <img src="icons/profile.png" alt="">
+
+                </div>
+                
+            </div>
+            <hr>
+            <div class="left-menu-and-center-classes">
+            <div class="left-menu">
+                <ul>
+                    <li>
+                        
+                        <div class="list-item1">
+                            <img src="icons/home.png" alt="">
+                        <span style="font-size: larger; font-family: Arial, Helvetica, sans-serif;">Home</span>
+                        </div>
+                        
+                       <div class="list-item2">
+                        <img src="icons/briefcase (1).png" alt="">
+                        <span style="font-size: larger; font-family: Arial, Helvetica, sans-serif;">Classroom</span>
+                       </div>
+                        
+                        <div class="list-item3">
+                            <img src="icons/chat (1).png" alt="">
+                            <span style="font-size: larger; font-family: Arial, Helvetica, sans-serif;">Chats</span>
+
+                        </div>
+                        
+                        <div class="list-item4">
+                            <img src="icons/open-book (1).png" alt="">
+                            <span style="font-size: larger; font-family: Arial, Helvetica, sans-serif;">Materials</span>
+
+                        </div>
+
+                        <div class="list-item5">
+                            <img src="icons/approve (2).png" alt="">
+                            <span style="font-size: larger; font-family: Arial, Helvetica, sans-serif;">Assignments</span>
+
+                        </div>
+                    </li>
+                </ul>
+                
+            </div>
+
+            <div class="welcome-back-and-center-classes">
+                <div class="welcome-back">
+                    <h3>Welcome back</h3>
+                        <h1>Rejimoan</h1>
+                </div>
+                
+                <div class="center-classes">
+                    <div class="class1" id="class1Div">
+                    </div>
+    
+                    <div class="class2">
+                    </div>
+                    
+                    <div class="class3">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+        <script>
+            // Get the class1 div element by its id
+            var class1Div = document.getElementById("class1Div");
+        
+            // Add a click event listener to the class1 div
+            class1Div.addEventListener("click", function() {
+                // Redirect the user to a different page when the div is clicked
+                window.location.href = "class1.html";
+            });
+        </script>
+    </body>
+</html>
+
