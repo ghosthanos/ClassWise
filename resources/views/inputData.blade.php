@@ -13,11 +13,16 @@
 		@foreach($datas as $data)
 			@if (!is_null($data->msg)) 
 				@if (!is_null($data->t_id))
-					{{ $data->t_id }} :	{{-- code for teacher msg --}}
+					@foreach($teacherDatas as $tData)
+						@if ($tData->t_id == $data->t_id)
+							(T) {{ $tData->name }} :
+							@break
+						@endif
+					@endforeach
 				@elseif (!is_null($data->s_id))
 					@foreach($studentDatas as $sData)
 						@if ($sData->s_id == $data->s_id)
-							{{ $sData->name }} :
+							(S) {{ $sData->name }} :
 							@break
 						@endif
 					@endforeach
@@ -43,11 +48,16 @@
 		@foreach($datas as $data)
 			@if (!is_null($data->file)) 
 				@if (!is_null($data->t_id))
-					{{ $data->t_id }} :	{{-- code for teacher msg --}}
+					@foreach($teacherDatas as $tData)
+						@if ($tData->t_id == $data->t_id)
+							(T) {{ $tData->name }} :
+							@break
+						@endif
+					@endforeach
 				@elseif (!is_null($data->s_id))
 					@foreach($studentDatas as $sData)
 						@if ($sData->s_id == $data->s_id)
-							{{ $sData->name }} :
+							(S) {{ $sData->name }} :
 							@break
 						@endif
 					@endforeach

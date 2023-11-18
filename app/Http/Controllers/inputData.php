@@ -5,6 +5,9 @@ use App\Models\Events;
 use App\Models\Users;
 use App\Models\Data;
 use App\Models\Student;
+use App\Models\Teacher;
+use App\Models\ClassInfo;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -45,8 +48,9 @@ class inputData extends Controller
 	public function dataDisplay() {
 		$datas = DB::table('data')->get();
 		$studentDatas = DB::table('student')->get();
+		$teacherDatas = DB::table('teacher')->get();
 		// dd($studentDatas);
-	    return view('inputData', compact('datas', 'studentDatas'));
+	    return view('inputData', compact('datas', 'studentDatas', 'teacherDatas'));
 		// return redirect()->route('inputData.display', ['datas' => $datas]);	
 	}
 }
