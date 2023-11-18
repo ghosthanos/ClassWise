@@ -35,11 +35,11 @@
 <div class="container">
     <h2>Select User Type</h2>
     <form action="#" method="POST">
-        <a href={{ route('admin.login') }}>
-            <button type="button">admin</button>
+        <a href={{ route('teacher.login') }}>
+            <button type="button">Teacher</button>
           </a>
           <a href={{ route('user.login') }}>
-            <button type="button">user</button>
+            <button type="button">Student</button>
           </a>
     </form>
 

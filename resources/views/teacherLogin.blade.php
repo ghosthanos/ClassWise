@@ -49,7 +49,7 @@
 <body>
 
 <div class="container">
-    <h2>Admin Sign In</h2>
+    <h2>Teacher Sign In</h2>
     <form action="#" method="POST">
         @csrf
         <label for="email">Username:</label>
@@ -62,7 +62,7 @@
     </form>
 
     <!-- Add Admin Register button -->
-    <button onclick="window.location.href='/adminregister'">Admin Register</button>
+    <button onclick="window.location.href='/teacherRegister'">Teacher Register</button>
 </div>
 
 </body>

@@ -1,13 +1,16 @@
 <?php
+
+use App\Http\Controllers\classRooms;
 use App\Http\Controllers\eventCreator;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\downloadController;
 use App\Http\Controllers\eventUser;
 use App\Http\Controllers\inputData;
-
+use App\Http\Controllers\teacherLogin;
 use Illuminate\Support\Facades\Route;
 
 
+/* comments and file upload */
 
 // Route::get('/inputData', [inputData::class, 'index']);
 Route::get('/inputData', [inputData::class, 'dataDisplay'])->name('inputData.index');
@@ -15,13 +18,23 @@ Route::post('/inputData', [inputData::class, 'upload']);
 
 Route::get('/download/{id}', [downloadController::class, 'download'])->name('download');
 
-Route:: get('/', [eventCreator::class, 'index'])->name('select');
-Route:: get('/adminlogin', [eventCreator::class, 'login'])->name('admin.login');
-Route::post('/adminlogin', [eventCreator::class, 'authenticate']);
-Route:: get('/adminregister', [eventCreator::class, 'register'])->name('admin.register');
-Route::post('/adminregister', [eventCreator::class, 'store']);
+
+/* main page */
+
+Route:: get('/', [teacherLogin::class, 'index'])->name('select');
+
+/* Teacher */
+Route:: get('/teacherLogin', [teacherLogin::class, 'login'])->name('teacher.login');
+Route::post('/teacherLogin', [teacherLogin::class, 'authenticate']);
+
+Route:: get('/teacherRegister', [teacherLogin::class, 'register'])->name('teacher.register');
+Route::post('/teacherRegister', [teacherLogin::class, 'store']);
 // GET DISPLAY
-Route:: get ('/{id}/event', [eventController::class, 'show'])->name('admin.event');
+Route:: get ('/teacher/{t_id}/classRooms', [classRooms::class, 'show'])->name('teacher.classRooms');
+
+Route::get('/teacher/{t_id}/room/create', [classRooms::class, 'create'])->name('teacher.create');
+Route::post('/teacher/{t_id}/room/create', [classRooms::class, 'store'])->name('teacher.store');
+
 // POST CREATE
 Route::get('/{id}/event/create', [eventController::class, 'create'])->name('admin.create');
 Route::post('/{id}/event/create', [eventController::class, 'store']);

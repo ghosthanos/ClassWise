@@ -22,7 +22,7 @@ class eventCreator extends Controller
 // ADMIN AUTHENTICATION------------------------------------------------------------------
     public function login()
     {
-        return view('adminLogin');
+        return view('teacherLogin');
     }
 
     public function authenticate(Request $request)

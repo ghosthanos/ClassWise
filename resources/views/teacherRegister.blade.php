@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Registration</title>
+    <title>Teacher Registration</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,13 +54,13 @@
 <body>
 
 <div class="container">
-    <h2>Admin Registration</h2>
+    <h2>Teacher Registration</h2>
     <form action="#" method="post">
         @csrf
         <label for="fullName">Full Name:</label>
         <input type="text" id="Name" name="Name" required>
 
-        <label for="email">Email:</label>
+        <label for="email">Email(Username):</label>
         <input type="email" id="email" name="email" required>
 
         <label for="password">Password:</label>
