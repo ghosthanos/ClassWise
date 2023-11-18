@@ -12,6 +12,17 @@
         <h2>Comments Section</h2>
 		@foreach($datas as $data)
 			@if (!is_null($data->msg)) 
+				@if (!is_null($data->t_id))
+					{{ $data->t_id }} :	{{-- code for teacher msg --}}
+				@elseif (!is_null($data->s_id))
+					@foreach($studentDatas as $sData)
+						@if ($sData->s_id == $data->s_id)
+							{{ $sData->name }} :
+							@break
+						@endif
+					@endforeach
+					{{-- {{ $data->s_id }} :	code for student msg --}}
+				@endif	
 				{{ $data->msg }} 
 				<br>
 			@endif
@@ -30,8 +41,18 @@
         <!-- Section for file upload -->
         <h2>File Upload Section</h2>
 		@foreach($datas as $data)
-			<a href="{{ route('download', ['id' => $data->id]) }}">{{ $data->file }} </a>
 			@if (!is_null($data->file)) 
+				@if (!is_null($data->t_id))
+					{{ $data->t_id }} :	{{-- code for teacher msg --}}
+				@elseif (!is_null($data->s_id))
+					@foreach($studentDatas as $sData)
+						@if ($sData->s_id == $data->s_id)
+							{{ $sData->name }} :
+							@break
+						@endif
+					@endforeach
+				@endif	
+				<a href="{{ route('download', ['id' => $data->id]) }}">{{ $data->file }} </a>
 				<br>
 			@endif
 		@endforeach	

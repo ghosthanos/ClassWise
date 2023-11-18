@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Events;
 use App\Models\Users;
 use App\Models\Data;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -43,7 +44,9 @@ class inputData extends Controller
 
 	public function dataDisplay() {
 		$datas = DB::table('data')->get();
-	    return view('inputData', compact('datas'));
+		$studentDatas = DB::table('student')->get();
+		// dd($studentDatas);
+	    return view('inputData', compact('datas', 'studentDatas'));
 		// return redirect()->route('inputData.display', ['datas' => $datas]);	
 	}
 }
