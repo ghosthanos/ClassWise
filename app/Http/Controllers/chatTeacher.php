@@ -58,5 +58,28 @@ class chatTeacher extends Controller
 	    return view('teacherChatData', compact('datas', 'studentDatas', 'teacherDatas', 't_id', 'sub_id'));
 		// return redirect()->route('inputData.display', ['datas' => $datas]);	
 	}
-}
 
+
+	public function destroy($t_id, $sub_id) {
+		// dd($t_id, $sub_id);
+		// $datas = DB::table('data')->where('sub_id', $sub_id)->get();
+		$deletedDatas = DB::table('data')->where('sub_id', $sub_id)->delete();
+		// dd($deletedDatas);
+        
+        if ($deletedDatas) {
+			$deletedSubject = DB::table('subjects')->where('sub_id', $sub_id)->delete();
+	        if ($deletedSubject) {
+	            return redirect()->route('teacher.classRooms', ['t_id' => $t_id])->with('success', 'Event deleted successfully');
+	        } else {
+	            return redirect()->back()->with('error', 'Failed to delete the subject.');
+	        }
+        } else {
+            return redirect()->back()->with('error', 'Failed to delete the datas of subject.');
+        }
+		// $studentDatas = DB::table('students')->get();
+		// $teacherDatas = DB::table('teachers')->get();
+		// // dd($studentDatas);
+	    // return view('teacherChatData', compact('datas', 'studentDatas', 'teacherDatas', 't_id', 'sub_id'));
+		// // return redirect()->route('inputData.display', ['datas' => $datas]);	
+	}
+}

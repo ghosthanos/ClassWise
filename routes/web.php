@@ -42,7 +42,7 @@ Route::get('/teacher/{t_id}/room/{sub_id}/', [chatTeacher::class, 'chatDisplay']
 Route::post('/teacher/{t_id}/room/{sub_id}/', [chatTeacher::class, 'upload'])->name('teacher.room.chat.post');
 
 // deleting classrooms
-Route::get('/teacher/{t_id}/room/{sub_id}/delete', [classRooms::class, 'destroy'])->name('teacher.destroy');
+Route::delete('/teacher/{t_id}/room/{sub_id}/destroy', [chatTeacher::class, 'destroy'])->name('teacher.classRooms.destroy');
 
 
 

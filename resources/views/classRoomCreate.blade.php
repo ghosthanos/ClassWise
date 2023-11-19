@@ -49,10 +49,22 @@
             border-radius: 4px;
             cursor: pointer;
         }
+		.goback-button {
+			position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: green;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
+<a href="{{ route('teacher.classRooms', ['t_id' => $t_id]) }}" class="goback-button" style="text-decoration: none;">Go Back</a>
 <div class="container">
     <h2>Create Classroom</h2>
     <form action="#" method="post">

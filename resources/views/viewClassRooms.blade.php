@@ -104,6 +104,7 @@
 <body>
     <button class="logout" onclick="window.location.href='/'">Logout</button>
 <div class="event-container">
+	
     <h2>Classrooms</h2>
 
     @foreach($classRooms as $room)
@@ -112,9 +113,6 @@
         <div class="room">
             <!-- <button class="edit-btn">Edit</button> -->
             <!-- <form method="post" style="display: inline;"> -->
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="delete-btn">Delete</button>
             <!-- </form> -->
 
             <h3>{{ $room->name }}</h3>

@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Comments and File Upload</title>
 	<style>
         .goback-button {
 			position: absolute;
             top: 10px;
+            right: 10px;
+            background-color: green;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+		.destroy-button {
+			position: absolute;
+            top: 70px;
             right: 10px;
             background-color: red;
             color: white;
@@ -20,6 +32,12 @@
 </head>
 <body>
 <a href="{{ route('teacher.classRooms', ['t_id' => $t_id]) }}" class="goback-button" style="text-decoration: none;">Go Back</a>
+<form method="post" action="{{ route('teacher.classRooms.destroy', ['t_id' => $t_id, 'sub_id' => $sub_id]) }}"> 
+	@csrf
+    @method('DELETE')
+    <button type="submit" class="destroy-button">Delete</button>
+</form>
+
 
     <div style="width: 50%; float: left;">
         <!-- Section for comments -->
