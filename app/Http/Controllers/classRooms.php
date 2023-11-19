@@ -109,7 +109,13 @@ class classRooms extends Controller
     //     }
     // }
 
-
+/* show chat of respective rooms */
+// public function showChats($t_id)
+// {
+// 	$chats = DB::table('data')->where('t_id', $t_id)->get();
+// 	// dd($classRooms);
+// 	return view('viewClassRooms', compact('classRooms','classinfos','t_id'));
+// }
 
 }
 

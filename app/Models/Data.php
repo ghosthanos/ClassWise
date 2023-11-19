@@ -9,7 +9,7 @@ class Data extends Model
 {
     use HasFactory;
 
-	protected $fillable = ['t_id', 's_id', 'msg', 'file', 'file_content'];
+	protected $fillable = ['t_id', 's_id', 'msg', 'file', 'file_content', 'sub_id'];
     public $timestamps = false;
 	
 }

@@ -107,6 +107,8 @@
     <h2>Classrooms</h2>
 
     @foreach($classRooms as $room)
+
+	<a href={{ route('teacher.room.chat', ['t_id' => $t_id, 'sub_id' => $room->sub_id]) }}>
         <div class="room">
             <!-- <button class="edit-btn">Edit</button> -->
             <!-- <form method="post" style="display: inline;"> -->
@@ -124,6 +126,7 @@
 			@endforeach
         </div>
     @endforeach
+  	</a>
 	<a href={{ route('teacher.create', ['t_id' => $t_id]) }}>
 	    <button class="create-btn" type="button">Create new Classroom</button>
   	</a>

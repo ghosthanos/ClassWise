@@ -4,6 +4,7 @@ use App\Http\Controllers\classRooms;
 use App\Http\Controllers\eventCreator;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\downloadController;
+use App\Http\Controllers\chatTeacher;
 use App\Http\Controllers\eventUser;
 use App\Http\Controllers\inputData;
 use App\Http\Controllers\teacherLogin;
@@ -37,7 +38,8 @@ Route::get('/teacher/{t_id}/room/create', [classRooms::class, 'create'])->name('
 Route::post('/teacher/{t_id}/room/create', [classRooms::class, 'store'])->name('teacher.store');
 
 // respective chat areas
-Route::get('/teacher/{t_id}/room/{sub_id}/', [classRooms::class, 'showChat'])->name('teacher.room.chat');
+Route::get('/teacher/{t_id}/room/{sub_id}/', [chatTeacher::class, 'chatDisplay'])->name('teacher.room.chat');
+Route::post('/teacher/{t_id}/room/{sub_id}/', [chatTeacher::class, 'upload'])->name('teacher.room.chat.post');
 
 // deleting classrooms
 Route::get('/teacher/{t_id}/room/{sub_id}/delete', [classRooms::class, 'destroy'])->name('teacher.destroy');

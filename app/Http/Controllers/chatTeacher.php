@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 // namespace App\Http\Controllers\inputData;
 
-class inputData extends Controller
+class chatTeacher extends Controller
 {
     //
 	public function index()
@@ -21,13 +21,14 @@ class inputData extends Controller
 		return view('inputData');
     }
 
-	public function upload(Request $request) {
+	public function upload($t_id, $sub_id, Request $request) {
 		// $comment = $request->input('comment');
 		// console.log($comment);
 		// dd(ini_get('upload_max_filesize'), ini_get('post_max_size'));
-		ini_set('memory_limit', '1024M'); // Set the memory limit to 256 megabytes (adjust as needed)
-
-		dd("hello");
+		// ini_set('memory_limit', '1024M'); // Set the memory limit to 256 megabytes (adjust as needed)
+		// dd("hello");
+		// dd($sub_id);
+		// dd("hello");
 		$data = new Data();
 		$data->msg = $request->input('comment');
 		$data->file = $request->input('file');
@@ -41,18 +42,21 @@ class inputData extends Controller
 			// dd($data);
 			// $file->storeAs('uploads', $file->getClientOriginalName());
 		}
-		$data->sub_id = 20;
+		$data->sub_id = $sub_id;
+		$data->t_id = $t_id;
 		$data->save();
 
-		return redirect()->route('inputData.index');
+		return redirect()->route('teacher.room.chat', ['t_id' => $t_id, 'sub_id' => $sub_id]);
 	}
 
-	public function dataDisplay() {
-		$datas = DB::table('data')->get();
+	public function chatDisplay($t_id, $sub_id) {
+		// dd($t_id, $sub_id);
+		$datas = DB::table('data')->where('sub_id', $sub_id)->get();
 		$studentDatas = DB::table('students')->get();
 		$teacherDatas = DB::table('teachers')->get();
 		// dd($studentDatas);
-	    return view('inputData', compact('datas', 'studentDatas', 'teacherDatas'));
+	    return view('teacherChatData', compact('datas', 'studentDatas', 'teacherDatas', 't_id', 'sub_id'));
 		// return redirect()->route('inputData.display', ['datas' => $datas]);	
 	}
 }
+
