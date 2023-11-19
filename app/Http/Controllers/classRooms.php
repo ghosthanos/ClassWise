@@ -56,16 +56,17 @@ class classRooms extends Controller
 
         // $event->user_id = $user->id;
         // $event->save();
-		dd($subject);
-        // return redirect()->route('admin.event', ['id' => $id]);
+		// dd($subject);
+        return redirect()->route('teacher.classRooms', ['t_id' => $t_id]);
     }
 
 //DISPLAY----------------------------------------------------------------------------------------
     public function show($t_id)
     {
         $classRooms = DB::table('subjects')->where('t_id', $t_id)->get();
+        $classinfos = DB::table('classinfos')->get();
 		// dd($classRooms);
-        return view('viewClassRooms', compact('classRooms','t_id'));
+        return view('viewClassRooms', compact('classRooms','classinfos','t_id'));
     }
 
 
@@ -95,7 +96,7 @@ class classRooms extends Controller
 
 
 //DELETING--------------------------------------------------------------------------------------------------------------
-    // public function destroy($id, $eid)
+    // public function destroy($t_id, $sub_id)
     // {
         
     //     $deleted = DB::table('events')->where('id', $eid)->delete();
@@ -107,4 +108,8 @@ class classRooms extends Controller
     //         return redirect()->back()->with('error', 'Failed to delete the event.');
     //     }
     // }
+
+
+
 }
+

@@ -90,38 +90,28 @@
             border-radius: 4px;
             cursor: pointer;
         }
-
-        .room {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin: 10px;
-            float: left;
-            width: 200px;
-            height: 150px;
-        }
     </style>
 </head>
 <body>
     <button class="logout" onclick="window.location.href='/'">Logout</button>
 <div class="event-container">
-    <h2>Classrooms</h2>
+    <h2>View Events</h2>
 
-    @foreach($classRooms as $room)
+    @foreach($classRooms as $rooms)
         <div class="room">
-            <!-- <button class="edit-btn">Edit</button> -->
-            <!-- <form method="post" style="display: inline;"> -->
+            <!-- <button class="edit-btn" onclick="window.location.href='/{{ $event->user_id }}/event/{{ $event->id }}/edit'">Edit</button>
+            <form method="post" action="/{{ $event->user_id }}/event/{{ $event->id }}/delete" style="display: inline;">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="delete-btn">Delete</button>
-            <!-- </form> -->
+            </form> -->
 
             <h3>{{ $room->name }}</h3>
-			@foreach($classinfos as $cInfo)
-				@if ($room->c_id == $cInfo->c_id)
-		            <p><strong>Class: </strong> {{ $cInfo->name}}</p>
-					@break
-				@endif
-			@endforeach
+            <p><strong>Class: </strong> {{ $room->c_id }}</p>
+            <!-- <p><strong>Event Date:</strong> {{ $event->start_time }}</p>
+            <p><strong>Venue:</strong> {{ $event->venue }}</p>
+            <p><strong>Description:</strong> {{ $event->description }}</p>
+            <p><strong>Price of ticket:</strong> {{ $event->ticket_price }}</p> -->
         </div>
     @endforeach
 	<a href={{ route('teacher.create', ['t_id' => $t_id]) }}>

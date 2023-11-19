@@ -32,8 +32,17 @@ Route::post('/teacherRegister', [teacherLogin::class, 'store']);
 // GET DISPLAY
 Route:: get ('/teacher/{t_id}/classRooms', [classRooms::class, 'show'])->name('teacher.classRooms');
 
+// creating classrooms
 Route::get('/teacher/{t_id}/room/create', [classRooms::class, 'create'])->name('teacher.create');
 Route::post('/teacher/{t_id}/room/create', [classRooms::class, 'store'])->name('teacher.store');
+
+// respective chat areas
+Route::get('/teacher/{t_id}/room/{sub_id}/', [classRooms::class, 'showChat'])->name('teacher.room.chat');
+
+// deleting classrooms
+Route::get('/teacher/{t_id}/room/{sub_id}/delete', [classRooms::class, 'destroy'])->name('teacher.destroy');
+
+
 
 // POST CREATE
 Route::get('/{id}/event/create', [eventController::class, 'create'])->name('admin.create');
