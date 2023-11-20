@@ -64,8 +64,8 @@ Route:: get ('/student/{s_id}/room/{c_id}', [studentSubjects::class, 'show'])->n
 // show chats of corresponding subjects
 Route::get('/student/{s_id}/room/{c_id}/subject/{sub_id}/', [chatStudent::class, 'chatDisplay'])->name('student.subject.chat');
 
-
-
+// upload comments
+Route::post('/student/{s_id}/room/{c_id}/subject/{sub_id}/', [chatStudent::class, 'upload'])->name('student.room.chat.post');
 
 
 Route:: get('/userlogin', [eventUser::class, 'login'])->name('user.login');

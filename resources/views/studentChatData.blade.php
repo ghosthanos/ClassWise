@@ -61,6 +61,13 @@
 			@endif
 		@endforeach	
 		<br>
+	 <form method="post" action="{{ route('student.room.chat.post', ['s_id' => $s_id, 'c_id' => $c_id, 'sub_id' => $sub_id]) }}">
+            @csrf
+            <label for="comment">Enter your comment:</label>
+            <textarea name="comment" id="comment" rows="4" cols="50"></textarea>
+            <br>
+            <button type="submit">Submit Comment</button>
+        </form>
     </div>
 
     <div style="width: 50%; float: left;">

@@ -43,7 +43,7 @@
         <!-- Section for comments -->
         <h2>Comments Section</h2>
 		@foreach($datas as $data)
-			@if ($data->sub_id == $sub_id && $data->t_id == $t_id)
+			@if ($data->sub_id == $sub_id)
 				@if (!is_null($data->msg)) 
 					@if (!is_null($data->t_id))
 						@foreach($teacherDatas as $tData)
@@ -80,7 +80,7 @@
         <!-- Section for file upload -->
         <h2>File Upload Section</h2>
 		@foreach($datas as $data)
-			@if ($data->sub_id == $sub_id && $data->t_id == $t_id)
+			@if ($data->sub_id == $sub_id)
 				@if (!is_null($data->file)) 
 					@if (!is_null($data->t_id))
 						@foreach($teacherDatas as $tData)

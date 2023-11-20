@@ -21,33 +21,33 @@ class chatStudent extends Controller
 	// 	return view('inputData');
     // }
 
-	// public function upload($t_id, $sub_id, Request $request) {
-	// 	// $comment = $request->input('comment');
-	// 	// console.log($comment);
-	// 	// dd(ini_get('upload_max_filesize'), ini_get('post_max_size'));
-	// 	// ini_set('memory_limit', '1024M'); // Set the memory limit to 256 megabytes (adjust as needed)
-	// 	// dd("hello");
-	// 	// dd($sub_id);
-	// 	// dd("hello");
-	// 	$data = new Data();
-	// 	$data->msg = $request->input('comment');
-	// 	$data->file = $request->input('file');
-	// 	// $data->file_content = $request->
-	// 	// dd($request->all());
-	// 	if ($request->hasFile('file') && $request->file('file')->isValid()) {
-	// 		$file = $request->file('file');
-	// 		// dd($file);
-	// 		$data->file = $file->getClientOriginalName();
-	// 		$data->file_content = file_get_contents($file->getRealPath());
-	// 		// dd($data);
-	// 		// $file->storeAs('uploads', $file->getClientOriginalName());
-	// 	}
-	// 	$data->sub_id = $sub_id;
-	// 	$data->t_id = $t_id;
-	// 	$data->save();
+	public function upload($s_id, $c_id, $sub_id, Request $request) {
+		// $comment = $request->input('comment');
+		// console.log($comment);
+		// dd(ini_get('upload_max_filesize'), ini_get('post_max_size'));
+		// ini_set('memory_limit', '1024M'); // Set the memory limit to 256 megabytes (adjust as needed)
+		// dd("hello");
+		// dd($sub_id);
+		// dd("hello");
+		$data = new Data();
+		$data->msg = $request->input('comment');
+		// $data->file = $request->input('file');
+		// $data->file_content = $request->
+		// dd($request->all());
+		// if ($request->hasFile('file') && $request->file('file')->isValid()) {
+		// 	$file = $request->file('file');
+			// dd($file);
+			// $data->file = $file->getClientOriginalName();
+			// $data->file_content = file_get_contents($file->getRealPath());
+			// dd($data);
+			// $file->storeAs('uploads', $file->getClientOriginalName());
+		// }
+		$data->sub_id = $sub_id;
+		$data->s_id = $s_id;
+		$data->save();
 
-	// 	return redirect()->route('teacher.room.chat', ['t_id' => $t_id, 'sub_id' => $sub_id]);
-	// }
+		return redirect()->route('student.subject.chat', ['s_id' => $s_id, 'c_id' => $c_id, 'sub_id' => $sub_id]);
+	}
 
 	public function chatDisplay($s_id, $c_id, $sub_id) {
 		// dd("hello");
