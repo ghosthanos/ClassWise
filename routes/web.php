@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\classRooms;
+use App\Http\Controllers\studentSubjects;
 use App\Http\Controllers\eventCreator;
 use App\Http\Controllers\eventController;
 use App\Http\Controllers\downloadController;
 use App\Http\Controllers\chatTeacher;
+use App\Http\Controllers\chatStudent;
 use App\Http\Controllers\eventUser;
 use App\Http\Controllers\inputData;
 use App\Http\Controllers\teacherLogin;
+use App\Http\Controllers\studentLogin;
 use Illuminate\Support\Facades\Route;
 
 
@@ -46,16 +49,20 @@ Route::delete('/teacher/{t_id}/room/{sub_id}/destroy', [chatTeacher::class, 'des
 
 
 
-// POST CREATE
-Route::get('/{id}/event/create', [eventController::class, 'create'])->name('admin.create');
-Route::post('/{id}/event/create', [eventController::class, 'store']);
-// PUT OR PATCH EDITING
-Route::get('/{id}/event/{eid}/edit', [eventController::class, 'edit']);
-Route::patch('/{id}/event/{eid}/edit', [eventController::class, 'update']);
-// DELETE
-Route::delete('/{id}/event/{eid}/delete', [eventController::class, 'destroy']);
+// Student 
+
+Route::get('/studentLogin', [studentLogin::class, 'login'])->name('student.login');
+Route::post('/studentLogin', [studentLogin::class, 'authenticate'])->name('student.authenticate');
+
+Route:: get('/studentRegister', [studentLogin::class, 'register'])->name('student.register');
+Route::post('/studentRegister', [studentLogin::class, 'store'])->name('student.register.post');
 
 
+// showing subjects of student
+Route:: get ('/student/{s_id}/room/{c_id}', [studentSubjects::class, 'show'])->name('student.subjects.show');
+
+// show chats of corresponding subjects
+Route::get('/student/{s_id}/room/{c_id}/subject/{sub_id}/', [chatStudent::class, 'chatDisplay'])->name('student.subject.chat');
 
 
 
@@ -74,3 +81,21 @@ Route:: post ('/{id}/events/{eid}/book', [eventUser::class, 'book']);
 Route:: get ('/{id}/ticket', [eventUser::class, 'viewticket'])->name('user.ticket');
 // DELETE TICKETS
 Route::delete('/{id}/ticket/delete/{tid}', [eventUser::class, 'destroy1']);
+
+
+
+
+
+// POST CREATE
+Route::get('/{id}/event/create', [eventController::class, 'create'])->name('admin.create');
+Route::post('/{id}/event/create', [eventController::class, 'store']);
+// PUT OR PATCH EDITING
+Route::get('/{id}/event/{eid}/edit', [eventController::class, 'edit']);
+Route::patch('/{id}/event/{eid}/edit', [eventController::class, 'update']);
+// DELETE
+Route::delete('/{id}/event/{eid}/delete', [eventController::class, 'destroy']);
+
+
+
+
+

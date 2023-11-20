@@ -37,8 +37,8 @@
     <form action="#" method="POST">
         <a href={{ route('teacher.login') }}>
             <button type="button">Teacher</button>
-          </a>
-          <a href={{ route('user.login') }}>
+          </a> <br><br>
+          <a href={{ route('student.login') }}>
             <button type="button">Student</button>
           </a>
     </form>
