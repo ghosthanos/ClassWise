@@ -99,11 +99,26 @@
             width: 200px;
             height: 150px;
         }
+
+		.change-class-button {
+			position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: green;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
     <button class="logout" onclick="window.location.href='/'">Logout</button>
 <div class="event-container">
+
+<a href="{{ route('student.changeClass.show', ['s_id' => $s_id, 'c_id' => $c_id]) }}" class="change-class-button" style="text-decoration: none;">change classRoom</a>
 	
     <h2>Subjects</h2>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Events;
 use App\Models\Subjects;
+use App\Models\Students;
 use App\Models\Teachers;
 use App\Models\Users;
 use App\Models\Classinfos;
@@ -73,6 +74,42 @@ class studentSubjects extends Controller
         return view('viewStudentSubjects', compact('subjects','teachers','c_id', 's_id'));
     }
 
+    public function showChangeClassPage($s_id, $c_id)
+    {
+
+        $className = DB::table('classinfos')->where('c_id', $c_id)->first();
+		return view('studentChangeClass', compact('s_id','c_id', 'className'));
+	}
+
+    public function changeClass($s_id, $c_id, Request $request)
+    {
+		$newClassName = $request->input('newClass');
+		$classFound = DB::table('classinfos')->where('name',$newClassName)->first();
+
+		// dd($classFound);
+		if (is_null($classFound)) {
+			$classInfo = new Classinfos();
+			$classInfo->name = $newClassName;
+
+			$classInfo->save();
+
+			$classFound = DB::table('classinfos')->where('name', $newClassName)->first();
+		}
+		// dd($classFound);
+		DB::table('students')->where('s_id', $s_id)->update(['c_id' => $classFound->c_id]);
+
+        return redirect()->route('student.subjects.show', ['s_id' => $s_id, 'c_id' => $classFound->c_id]);
+		// dd($studentFound);
+		
+		// dd($request->input('newClass'));
+		// dd($s_id, $c_id);
+		// dd("heello");
+        // $subjects = DB::table('subjects')->where('c_id', $c_id)->get();
+		// $teachers = DB::table('teachers')->get();
+        // $classinfos = DB::table('classinfos')->get();
+		// // dd($classRooms);
+        // return view('viewStudentSubjects', compact('subjects','teachers','c_id', 's_id'));
+    }
 
 //EDITING--------------------------------------------------------------------------------------------------------------
     // public function edit($id, $eid)

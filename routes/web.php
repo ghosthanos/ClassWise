@@ -60,6 +60,8 @@ Route::post('/studentRegister', [studentLogin::class, 'store'])->name('student.r
 
 // showing subjects of student
 Route:: get ('/student/{s_id}/room/{c_id}', [studentSubjects::class, 'show'])->name('student.subjects.show');
+Route:: get ('/student/{s_id}/room/{c_id}/changeClass', [studentSubjects::class, 'showChangeClassPage'])->name('student.changeClass.show');
+Route:: post('/student/{s_id}/room/{c_id}/changeClass', [studentSubjects::class, 'changeClass'])->name('student.changeClass');
 
 // show chats of corresponding subjects
 Route::get('/student/{s_id}/room/{c_id}/subject/{sub_id}/', [chatStudent::class, 'chatDisplay'])->name('student.subject.chat');
