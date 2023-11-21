@@ -92,7 +92,7 @@
 
         <!-- <button type="submit">Create Event</button> -->
 		<a href={{ route('teacher.store', ['t_id' => $t_id ]) }}>
-		    <button type="submit">Create new Classroom</button>
+		    <button style="margin-top: 25px; " type="submit">Create new Classroom</button>
 	  	</a>
     </form>
 </div>

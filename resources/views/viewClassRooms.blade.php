@@ -13,6 +13,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+
         }
         .logout{
             position: absolute;
@@ -26,11 +27,14 @@
             cursor: pointer;
         }
         .event-container {
+			
+			
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 600px;
+            width: 70%;
+			height: 100%;
             text-align: center;
         }
 
@@ -93,19 +97,29 @@
 
         .room {
             border: 1px solid #ccc;
+			border-radius: 10px;
+			background-color: #ffafff;
             padding: 15px;
             margin: 10px;
             float: left;
             width: 200px;
             height: 150px;
         }
+
+		h3{
+color: maroon;
+font-weight: bold;
+font-size: 25px;
+			text-align: center;
+			margin-top: 40px;
+		}
+
     </style>
 </head>
 <body>
     <button class="logout" onclick="window.location.href='/'">Logout</button>
 <div class="event-container">
-	
-    <h2>Classrooms</h2>
+    <h2 style=" text-align: center;">Classrooms</h2>
 
     @foreach($classRooms as $room)
 

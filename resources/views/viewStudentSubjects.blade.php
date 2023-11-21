@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: white;
             margin: 0;
             display: flex;
             align-items: center;
@@ -26,7 +26,7 @@
             cursor: pointer;
         }
         .event-container {
-            background-color: #fff;
+            background: rgba(255, 255, 255, 0.5);;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -92,18 +92,31 @@
         }
 
         .room {
-            border: 1px solid #ccc;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.497);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(248, 248, 248, 0.18);
             padding: 15px;
             margin: 10px;
             float: left;
             width: 200px;
             height: 150px;
         }
-
+		h3{
+color: maroon;
+font-weight: bold;
+font-size: 25px;
+			text-align: center;
+			margin-top: 40px;
+		}
 		.change-class-button {
 			position: absolute;
-            top: 50px;
-            right: 10px;
+            top: 10px;
+            left: 80px;
             background-color: green;
             color: white;
             padding: 10px 15px;

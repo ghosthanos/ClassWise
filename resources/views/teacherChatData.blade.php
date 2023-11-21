@@ -28,6 +28,65 @@
             border-radius: 5px;
             cursor: pointer;
         }
+.submit-comment, .upload-file-button, .choose-file-button{
+	margin-top: 5px;
+	background-color: #4ac;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	color: white;
+	font-weight: 200;
+	
+}
+
+.text-area{
+	height: 30px;
+	border-radius: 5px;
+}
+
+.text-area ::placeholder { 
+	margin-top: 5px;
+}
+.teacher-msg{
+	width: fit-content;
+	background-color: #4c826c;
+	color: white;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding: 5px;
+}
+
+
+.student-msg{
+	margin: 0px;
+	width: fit-content;
+	background-color: #284a58;
+	color: white;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding: 5px;
+}
+
+.comment-section{
+	margin-left: 20px;
+}
+
+.main{
+	display: flex;
+	flex-direction: row;
+}
+
+.file-upload a{
+
+color: white;
+}
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -38,30 +97,34 @@
     <button type="submit" class="destroy-button">Delete</button>
 </form>
 
-
-    <div style="width: 50%; float: left;">
+<div class="main">
+    <div class="comment-section" style="width: 50%; float: left;">
         <!-- Section for comments -->
-        <h2>Comments Section</h2>
+        <h2 style="font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 35px; ">Comments Section</h2>
 		@foreach($datas as $data)
 			@if ($data->sub_id == $sub_id)
 				@if (!is_null($data->msg)) 
 					@if (!is_null($data->t_id))
 						@foreach($teacherDatas as $tData)
 							@if ($tData->t_id == $data->t_id)
-								(T) {{ $tData->name }} :
+							<div class="teacher-msg">
+								{{ $tData->name }} :
+								{{ $data->msg }} 
+							</div>
 								@break
 							@endif
 						@endforeach
 					@elseif (!is_null($data->s_id))
 						@foreach($studentDatas as $sData)
 							@if ($sData->s_id == $data->s_id)
-								(S) {{ $sData->name }} :
+							<div class="student-msg">
+								{{ $sData->name }} :
+								{{ $data->msg }} 
+							</div>
 								@break
 							@endif
 						@endforeach
-						{{-- {{ $data->s_id }} :	code for student msg --}}
 					@endif	
-					{{ $data->msg }} 
 					<br>
 				@endif
 			@endif
@@ -69,35 +132,42 @@
 		<br>
 		<form method="post" action="{{ route('teacher.room.chat.post', ['t_id' => $t_id, 'sub_id' => $sub_id]) }}">
             @csrf
-            <label for="comment">Enter your comment:</label>
-            <textarea name="comment" id="comment" rows="4" cols="50"></textarea>
+            <!-- <label for="comment">Enter your comment:</label> -->
+		
+            <textarea class="text-area" name="comment" id="comment" rows="4" cols="50" placeholder="Enter your comment"></textarea>
             <br>
-            <button type="submit">Submit Comment</button>
+            <button class="submit-comment" type="submit">Submit Comment</button>
         </form>
     </div>
 
-    <div style="width: 50%; float: left;">
+    <div class="file-upload" style="width: 50%; float: left;">
         <!-- Section for file upload -->
-        <h2>File Upload Section</h2>
+        <h2 style="font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 35px; ">Resource Section</h2>
 		@foreach($datas as $data)
 			@if ($data->sub_id == $sub_id)
 				@if (!is_null($data->file)) 
 					@if (!is_null($data->t_id))
 						@foreach($teacherDatas as $tData)
 							@if ($tData->t_id == $data->t_id)
-								(T) {{ $tData->name }} :
+								<div class="teacher-msg">
+								{{ $tData->name }} :
+								<a href="{{ route('download', ['id' => $data->id]) }}">{{ $data->file }} </a>
+								</div>
 								@break
 							@endif
 						@endforeach
 					@elseif (!is_null($data->s_id))
 						@foreach($studentDatas as $sData)
 							@if ($sData->s_id == $data->s_id)
+								<div class="student-msg">
 								(S) {{ $sData->name }} :
+								<a href="{{ route('download', ['id' => $data->id]) }}">{{ $data->file }} </a>
+								</div>
 								@break
 							@endif
 						@endforeach
 					@endif	
-					<a href="{{ route('download', ['id' => $data->id]) }}">{{ $data->file }} </a>
+					
 					<br>
 				@endif
 			@endif
@@ -105,12 +175,12 @@
 		<br>
         <form method="post" action="{{ route('teacher.room.chat.post', ['t_id' => $t_id, 'sub_id' => $sub_id]) }}" enctype="multipart/form-data">
             @csrf
-            <label for="file">Choose a file:</label>
-            <input type="file" name="file" id="file">
+            
+            <input type="file" name="file" id="file" class="choose-file-button">
             <br>
-            <button type="submit">Upload File</button>
+            <button type="submit" class="upload-file-button">Upload File</button>
         </form>
     </div>
-
+	</div>
 </body>
 </html>
