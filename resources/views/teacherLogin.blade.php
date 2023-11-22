@@ -36,13 +36,21 @@
         }
 
         button {
-            background-color: #4caf50;
+            /* background-color: #4caf50;
             color: #fff;
             padding: 10px 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 10px; */
+			width: 50%;
+            padding: 15px;
+            background: linear-gradient(to left, #5ab89d,#377162);
+    border: none;
+    margin-bottom:0px ;
+    border-radius: 5px;
+	margin-top: 20px;
+    cursor: pointer;
         }
     </style>
 </head>

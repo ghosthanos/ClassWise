@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>User/Admin Selection</title>
     <style>
         body {
+            background: url(Harvey.jpg);
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -16,33 +17,24 @@
         }
 
         .container {
-            background-color: #fff;
+            background: rgba(255, 255, 255, 0.497);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 400px;
             text-align: center;
         }
 
-        h2 {
-            color: #333;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            box-sizing: border-box;
-        }
-
         button {
-			width: 50%;
+            width: 50%;
             padding: 15px;
             background: linear-gradient(to left, #5ab89d,#377162);
     border: none;
     margin-bottom:0px ;
     border-radius: 5px;
-	margin-top: 20px;
     cursor: pointer;
         }
     </style>
@@ -50,20 +42,16 @@
 <body>
 
 <div class="container">
-    <h2>Student Sign In</h2>
+    <h2 style="margin-bottom: 60px;">Select User Type</h2>
     <form action="#" method="POST">
-        @csrf
-        <label for="email">Username:</label>
-        <input type="text" id="email" name="email" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-		<button type="submit"onclick="window.location.href='{{ route('student.authenticate') }}'">Sign In</button>
+        <a href={{ route('teacher.login') }}>
+            <button type="button">Teacher</button>
+          </a> <br><br>
+          <a href={{ route('student.login') }}>
+            <button type="button">Student</button>
+          </a>
     </form>
 
-    <!-- Add Admin Register button -->
-	<button onclick="window.location.href='{{ route('student.register') }}'">Student Register</button>
 </div>
 
 </body>

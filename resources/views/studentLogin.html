@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Registration</title>
+    <title>Sign In</title>
     <style>
         body {
+            background: url(Harvey.jpg);
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -16,7 +17,10 @@
         }
 
         .container {
-            background-color: #fff;
+            background: rgba(255, 255, 255, 0.497);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -28,50 +32,53 @@
             color: #333;
         }
 
-        label {
-            display: block;
-            margin: 10px 0;
-            text-align: left;
-        }
-
         input {
+           
             width: 100%;
             padding: 10px;
             margin: 8px 0;
+            border: none;
+            border-radius: 5px;
             box-sizing: border-box;
         }
 
         button {
-            /* background-color: #4caf50; */
+            width: 100%;
             background: linear-gradient(to left, #5ab89d,#377162);
+    border: none;
+    margin-bottom:10px ;
+    border-radius: 5px;
+    cursor: pointer;
             color: #fff;
             padding: 10px 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
+
+        .password-input{
+            margin-bottom: 20px;
+        }
+
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>Student Registration</h2>
-    <form action="#" method="post">
+    <h2>Student Sign In</h2>
+    <form action="#" method="POST">
         @csrf
-        <label for="fullName">Full Name:</label>
-        <input type="text" id="Name" name="Name" required>
+        <label for="email">Username:</label>
+        <input type="text" id="email" name="email" required>
 
-        <label for="classInfo">Class:</label>
-        <input type="text" id="classInfo" name="classInfo" required>
+        <label  for="password">Password:</label>
+        <input class="password-input" type="password" id="password" name="password" required>
 
-        <label for="email">Email(Username):</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-		<button type="submit" onclick="window.location.href='{{ route('student.register.post') }}'">Register</button>
+		<button type="submit"onclick="window.location.href='{{ route('student.authenticate') }}'">Sign In</button>
     </form>
+
+    <!-- Add Admin Register button -->
+	<button onclick="window.location.href='{{ route('student.register') }}'">Student Register</button>
 </div>
 
 </body>

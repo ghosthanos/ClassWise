@@ -6,6 +6,7 @@
     <title>Sign In</title>
     <style>
         body {
+            background:url(Harvey.jpg);
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -16,40 +17,53 @@
         }
 
         .container {
-            background-color: #fff;
+            background: rgba(255, 255, 255, 0.497);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 400px;
             text-align: center;
         }
 
         h2 {
             color: #333;
+            margin-bottom: 30px;
         }
 
         input {
+            margin-bottom: 10px;
             width: 100%;
             padding: 10px;
             margin: 8px 0;
+            border: none;
+            border-radius: 5px;
             box-sizing: border-box;
+            margin-bottom: 20px;
         }
 
         button {
-            background-color: #4caf50;
+            margin-top: 5px;
+            width: 100%;
+            background: linear-gradient(to left, #5ab89d,#377162);
+    border: none;
+    margin-bottom:10px ;
+    border-radius: 5px;
+    cursor: pointer;
             color: #fff;
             padding: 10px 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>User Sign In</h2>
+    <h2>Teacher Sign In</h2>
     <form action="#" method="POST">
         @csrf
         <label for="email">Username:</label>
@@ -62,7 +76,7 @@
     </form>
 
     <!-- Add Admin Register button -->
-    <button onclick="window.location.href='/userregister'">User Register</button>
+    <button onclick="window.location.href='/teacherRegister'">Teacher Register</button>
 </div>
 
 </body>

@@ -6,6 +6,7 @@
     <title>View Events</title>
     <style>
         body {
+            background:url(Harvey.jpg);
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -13,12 +14,11 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            position: relative; /* Added position relative for positioning absolute elements */
-        }
 
-         .logout{
+        }
+        .logout{
             position: absolute;
-            top: 30px;
+            top: 10px;
             left: 80%;
             background-color: #f32121;
             padding: 10px 15px;
@@ -27,25 +27,18 @@
             border-radius: 4px;
             cursor: pointer;
         }
-
-        .view-bookings-btn {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            background-color: #2196F3;
-            padding: 10px 15px;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
         .event-container {
-            background-color: #fff;
+			
+			
+            background: rgba(255, 255, 255, 0.497);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 600px;
+            width: 70%;
+			height: 100%;
             text-align: center;
         }
 
@@ -96,8 +89,8 @@
 
         .create-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: -190px;
+            right: 80%;
             background-color: #4caf50;
             padding: 10px 15px;
             color: #fff;
@@ -105,26 +98,56 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
+        .room {
+            border: 1px solid #ccc;
+			border-radius: 10px;
+			background-color: #ffafff;
+            padding: 15px;
+            margin: 10px;
+            float: left;
+            width: 200px;
+            height: 150px;
+        }
+
+		h3{
+color: maroon;
+font-weight: bold;
+font-size: 25px;
+			text-align: center;
+			margin-top: 40px;
+		}
+
     </style>
 </head>
 <body>
-
-<button class="view-bookings-btn" onclick="window.location.href='/{{ $user->id }}/ticket'">View Bookings</button>
-<button class="logout" onclick="window.location.href='/'">Logout</button>
-
+    <button class="logout" onclick="window.location.href='/'">Logout</button>
 <div class="event-container">
-    <h2>View Events</h2>
+    <h2 style=" text-align: center;">Classrooms</h2>
 
-    @foreach($events as $event)
-        <div class="event">
-            <button class="edit-btn" onclick="window.location.href='/{{ $user->id }}/events/{{ $event->id }}/book'">Book</button>
+    @foreach($classRooms as $room)
 
-            <h3>{{ $event->title }}</h3>
-            <p><strong>Event Date:</strong> {{ $event->start_time }}</p>
-            <p><strong>Venue:</strong> {{ $event->venue }}</p>
-            <p><strong>Description:</strong> {{ $event->description }}</p>
+	<a href={{ route('teacher.room.chat', ['t_id' => $t_id, 'sub_id' => $room->sub_id]) }}>
+        <div class="room">
+            <!-- <button class="edit-btn">Edit</button> -->
+            <!-- <form method="post" style="display: inline;"> -->
+            <!-- </form> -->
+
+            <h3>{{ $room->name }}</h3>
+			@foreach($classinfos as $cInfo)
+				@if ($room->c_id == $cInfo->c_id)
+		            <p><strong>Class: </strong> {{ $cInfo->name}}</p>
+					@break
+				@endif
+			@endforeach
         </div>
     @endforeach
+  	</a>
+	<a href={{ route('teacher.create', ['t_id' => $t_id]) }}>
+	    <button class="create-btn" type="button">Create Classroom</button>
+  	</a>
+    <!-- <button class="create-btn" onclick="window.location.href='/teachers/{{ $t_id }}/room/create'">Create new Classroom</button> -->
 </div>
+
 </body>
 </html>

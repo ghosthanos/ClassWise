@@ -6,6 +6,7 @@
     <title>Teacher Registration</title>
     <style>
         body {
+            background: url(Harvey.jpg);
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -16,13 +17,17 @@
         }
 
         .container {
-            background-color: #fff;
+            background: rgba(255, 255, 255, 0.497);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 400px;
             text-align: center;
         }
+        
 
         h2 {
             color: #333;
@@ -35,6 +40,7 @@
         }
 
         input {
+            
             width: 100%;
             padding: 10px;
             margin: 8px 0;
@@ -42,8 +48,12 @@
         }
 
         button {
-            background-color: #4caf50;
-            /* background: linear-gradient(to left, #5ab89d,#377162); */
+            
+            background: linear-gradient(to left, #5ab89d,#377162);
+    border: none;
+    margin-bottom:20px ;
+    border-radius: 5px;
+    cursor: pointer;
             color: #fff;
             padding: 10px 15px;
             border: none;
@@ -54,13 +64,28 @@
 			position: absolute;
             top: 10px;
             right: 10px;
-            /* background-color: green; */
-            background: linear-gradient(to left, #5ab89d,#377162);
+            background-color: green;
             color: white;
             padding: 10px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            
+            box-sizing: border-box;
+            
+    background: rgba(162, 160, 160, 0.5);
+    border: none;
+    margin-bottom:20px ;
+    border-radius: 5px;
+        }
+
+        .change-class-button{
+            width: 100%;
         }
     </style>
 </head>
@@ -70,13 +95,13 @@
 
 <div class="container">
     <h2>Class Change</h2>
-	<h3>Current Class: {{ $className->name }}</h3>
+	<h3 style="color: #3333339c;">Current Class: {{ $className->name }}</h3>
     <form action="{{ route('student.changeClass', ['s_id' => $s_id, 'c_id' => $c_id]) }}" method="post">
         @csrf
         <label for="newClass">New Class Name:</label>
         <input type="text" id="newClass" name="newClass" required>
 
-        <button type="submit">Change Class</button>
+        <button class="change-class-button" type="submit">Change Clas</button>
     </form>
 </div>
 

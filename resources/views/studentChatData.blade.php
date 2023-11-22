@@ -10,7 +10,8 @@
 			position: absolute;
             top: 10px;
             right: 10px;
-            background-color: green;
+            /* background-color: green; */
+            background: linear-gradient(to left, #5ab89d,#377162);
             color: white;
             padding: 10px 15px;
             border: none;

@@ -42,7 +42,8 @@
         }
 
         button {
-            background-color: #4caf50;
+            /* background-color: #4caf50; */
+            background: linear-gradient(to left, #5ab89d,#377162);
             color: #fff;
             padding: 10px 15px;
             border: none;

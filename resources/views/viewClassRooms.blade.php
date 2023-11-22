@@ -51,7 +51,8 @@
         }
 
         button {
-            background-color: #4caf50;
+            /* background-color: #4caf50; */
+            background: linear-gradient(to left, #5ab89d,#377162);
             color: #fff;
             padding: 10px 15px;
             border: none;
@@ -98,7 +99,7 @@
         .room {
             border: 1px solid #ccc;
 			border-radius: 10px;
-			background-color: #ffafff;
+			background-color: #164863;
             padding: 15px;
             margin: 10px;
             float: left;
@@ -107,17 +108,20 @@
         }
 
 		h3{
-color: maroon;
+color: white;
 font-weight: bold;
 font-size: 25px;
 			text-align: center;
 			margin-top: 40px;
 		}
+		p {
+			color: white;
+		}
 
     </style>
 </head>
 <body>
-    <button class="logout" onclick="window.location.href='/'">Logout</button>
+    <button class="logout" style="background: #CE5A67;" onclick="window.location.href='/'">Logout</button>
 <div class="event-container">
     <h2 style=" text-align: center;">Classrooms</h2>
 
